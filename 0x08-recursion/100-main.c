@@ -1,20 +1,22 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
- * wildcmp - A function that compares two strings
- * @s1: First input string
- * @s2: Second input string
- * Return: 1 if strings identical and 0 in otherwise
+ * main - check the code
+ *
+ * Return: Always 0.
  */
-int wildcmp(char *s1, char *s2)
+int main(void)
 {
-	if (!*s1 && !*s2)
-		return (1);
-	if (*s1 == *s2)
-		return (wildcmp(s1 + 1, s2 + 1));
-	if (*s2 == '*' && (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2)))
-		return (1);
-	if (*s2 == '*' && *(s1 + 1) && *s2)
-		return (0);
-	return (0);
+    int r;
+
+    r = is_palindrome("level");
+    printf("%d\n", r);
+    r = is_palindrome("redder");
+    printf("%d\n", r);
+    r = is_palindrome("test");
+    printf("%d\n", r);
+    r = is_palindrome("step on no pets");
+    printf("%d\n", r);
+    return (0);
 }
