@@ -1,21 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
- * main - print the result of the multiplication, followed by a new line
- * @argc: int
- * @argv: list
- * Return: 0
+ * main - A program that multiplies two numbers
+ * @argc: The arguments' counter
+ * @argv: The arguments' values
+ * Return: Always 0 (Success)
  */
-
-int main(int argc, char const *argv[])
+int main(int argc, char **argv)
 {
-(void)argc;
+	int num1, num2, result;
 
-if (argc >= 3)
-{
-printf("Error\n");
-return (1);
-}
-printf("%i\n", atoi(argv[1]) * atoi(argv[2]));
-return (0);
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	else
+	{
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
+		result = num1 * num2;
+		printf("%d\n", result);
+		return (0);
+	}
 }
