@@ -6,15 +6,16 @@
  * @argv: list
  * Return: 0
  */
+
 int main(int argc, char const *argv[])
 {
 int i = 0;
-  
-(void)argv;
+
 while (argc--)
 {
-printf("%s\n", argv[i]);
-i++;
+	printf("%s\n", argv[i]);
+	i++;
 }
-return(0);
+
+return (0);
 }
