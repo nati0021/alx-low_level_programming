@@ -1,45 +1,44 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _strlen - find length of a string
- * @s: string
- * Return: int
+ * string_nconcat - A function that concatenates two strings
+ * @s1: An input pointer of the first string
+ * @s2: An input pointer of the second string
+ * @n: an input integer of number of string to concatenate
+ * Return: Apointer to concatened strings or NULL if it str is NULL
  */
-
-unsigned int _strlen(char *s)
-{
-unsigned int size = 0;
-for (; s[size] != '\0'; size++)
-;
-return (size);
-}
-
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-unsigned int i, j;
-char *m;
+	char *new_str;
+	unsigned int i = 0, lens1 = 0, lens2 = 0;
 
-if (s1 == NULL)
-	s1 = "";
-if (s2 == NULL)
-	s2 = "";
+	if (s1 == NULL)
+		s1 = "";
 
-if (n < _strlen(s2))
-	m = malloc(_strlen(s1) + n * sizeof(char) + 1);
-else
-	m = malloc(_strlen(s1) + _strlen(s2) + 1);
+	while (s1[lens1])
+		lens1++;
 
-if (m == 0)
-	return (NULL);
+	if (s2 == NULL)
+		s2 = "";
 
-for (i = 0; s1[i] != '\0'; i++)
-	m[i] = s1[i];
+	while (s2[lens2])
+		lens2++;
 
-for (j = 0; s2[j] != '\0' && j < n; i++, j++)
-	m[i] = s2[j];
+	if (n >= lens2)
+		n = lens2;
 
-m[i] = '\0';
+	new_str = malloc(lens1 + n + 1);
+	if (new_str == NULL)
+		return (NULL);
 
-return (m);
+	for (; i < (lens1 + n); i++)
+	{
+		if (i < lens1)
+			new_str[i] = *s1, s1++;
+		else
+			new_str[i] = *s2, s2++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
 }
